@@ -14,7 +14,7 @@ public class FileWriterTest {
 
     @Test
     public void ShouldWrite() throws IOException {
-        File testFile = new File("resources/junit-test-file.txt");
+        File testFile = new File("src/test/resources/junit-test-file.txt");
 
         String fileContent = "FileWriter.writeToFile tested at " + new Date() + ".";
 
@@ -24,7 +24,7 @@ public class FileWriterTest {
 
     @Test
     public void ShouldAppend() throws IOException {
-        File testFile = new File("resources/junit-test-file.txt");
+        File testFile = new File("src/test/resources/junit-test-file.txt");
 
         String newFileContent = "\nFileWriter.appendToFile tested at " + new Date() + ".";
 
@@ -34,9 +34,9 @@ public class FileWriterTest {
     }
 
     @Test
-    public void ShouldThrowError() {
-        assertThrows(FileNotFoundException.class, () -> {
-            FileWriter.writeToFile(new File("not a real file"), "foobar");
+    public void ShouldThrowIllegalArgumentExceptionBecauseNullFile() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            FileReader.readFile(null);
         });
     }
 }

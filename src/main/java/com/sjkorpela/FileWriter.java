@@ -8,7 +8,7 @@ import java.io.IOException;
 public class FileWriter {
 
     public static void writeToFile(File target, String content) throws FileNotFoundException {
-
+        if (target == null) { throw new IllegalArgumentException(); }
         if (!target.exists()) { throw new FileNotFoundException(); }
 
         try {

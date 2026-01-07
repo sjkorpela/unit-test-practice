@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class FileReader {
 
     public static String readFile(File target) throws FileNotFoundException {
+        if (target == null) { throw new IllegalArgumentException(); }
         if (!target.exists()) { throw new FileNotFoundException(); }
         if (target.length() == 0) { return ""; }
 

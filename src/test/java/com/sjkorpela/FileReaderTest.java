@@ -13,7 +13,7 @@ public class FileReaderTest {
     @Test
     public void ShouldReadOneLine() throws FileNotFoundException {
         String shouldRead = "This file has one line of text.";
-        assertEquals(shouldRead, FileReader.readFile(new File("resources/oneline.txt")));
+        assertEquals(shouldRead, FileReader.readFile(new File("src/test/resources/oneline.txt")));
     }
 
     @Test
@@ -23,19 +23,26 @@ public class FileReaderTest {
                 "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n" +
                 "Ut enim ad minim veniam.\n" +
                 "Uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n";
-        assertEquals(shouldRead, FileReader.readFile(new File("resources/manylines.txt")));
+        assertEquals(shouldRead, FileReader.readFile(new File("src/test/resources/manylines.txt")));
     }
 
     @Test
     public void ShouldReadEmptyFile() throws FileNotFoundException {
         String shouldRead = "";
-        assertEquals(shouldRead, FileReader.readFile(new File("resources/emptyfile.txt")));
+        assertEquals(shouldRead, FileReader.readFile(new File("src/test/resources/emptyfile.txt")));
     }
 
     @Test
-    public void ShouldThrowError() {
+    public void ShouldThrowFileNotFoundException() {
         assertThrows(FileNotFoundException.class, () -> {
-            FileReader.readFile(new File("not a real file"));
+            FileReader.readFile(new File("src/test/not a real file"));
+        });
+    }
+
+    @Test
+    public void ShouldThrowIllegalArgumentExceptionBecauseNullFile() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            FileReader.readFile(null);
         });
     }
 }
