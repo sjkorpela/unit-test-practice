@@ -21,7 +21,7 @@ public class App {
         System.out.println();
 
         // FileReader
-        File readerFile = new File("resources/filereader-test.txt");
+        File readerFile = new File("src/test/resources/filereader-test.txt");
         try {
             System.out.println(readerFile.getName() + ":\n" + FileReader.readFile(readerFile));
         } catch (FileNotFoundException e) {
@@ -30,7 +30,7 @@ public class App {
         System.out.println();
 
         // MyFileWriter
-        File writerFile = new File("resources/filewriter-test.txt");
+        File writerFile = new File("src/test/resources/filewriter-test.txt");
         String fileContent = "This file was edited at " + new Date() + "!";
         try {
             FileWriter.writeToFile(writerFile, fileContent);
