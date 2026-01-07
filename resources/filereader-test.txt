@@ -1,0 +1,7 @@
+This file is for testing the FileReader class.
+Lorem ipsum dolor sit amen.
+The quick brown fox jumps over the lazy dog.
+
+Empty line ^^^
+
+    <-- Tab
